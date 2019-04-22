@@ -1,6 +1,6 @@
 
 import os
-from crack_cap import beautiful_output, train
+import beautiful_output
 
 def status(word):
     word = str(word)
@@ -18,10 +18,10 @@ def status(word):
 fileLib = ['beautiful_output.py', 'clean.py', 'data_generator.py', 'DB.py', 'font.ttf', 'generator.py', 'get_model.py', 'train.py']
 file = os.listdir('./')
 
-print('INITIALIZE...',end='      ')
+print('INITIALIZE...')
+
 try:
-    from crack_cap import beautiful_output, train
-    status('OK')
+    import train
 except Exception as e:
     status(e)
 
@@ -33,14 +33,23 @@ if 'model.m' in file:
 
 # check teh file satisfied
 
-print('Processing...',end='      ')
+print('Processing...')
 for f in fileLib:
     if f in file:
         continue
     else:
         status('Loss file called: ' + f + ', please re-clone the program!')
 
-status('OK')
+
 print('\n')
 train.execute_program()
+
+
+# clean the resource dictionary
+os.system('rd /s/q train_data')
+os.system('md train_data')
+
+
+# stay
+input()
 

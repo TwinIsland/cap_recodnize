@@ -1,5 +1,5 @@
-import crack_cap.DB as DB
-import crack_cap.clean as clean
+import DB as DB
+import clean as clean
 import os
 
 

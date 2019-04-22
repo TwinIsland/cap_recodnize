@@ -1,4 +1,4 @@
-from crack_cap import DB, generator, data_generator, beautiful_output
+import DB, generator, data_generator, beautiful_output
 import os
 from sklearn.neighbors import KNeighborsClassifier as kNN
 from sklearn.externals import joblib
@@ -22,6 +22,8 @@ def execute_program():
     print('Begin to reconstruct...',end='      ')
     try:
         DB.reconstruct()
+
+        # do not use del command become the CLI will be ugly
         os.system('rd /s/q train_data')
         os.system('md train_data')
         status('OK')
@@ -32,6 +34,7 @@ def execute_program():
     print('\nExecute generating progress...')
     try:
         num = int(input('The number of code you wanna generate: '))
+
         print('Generating...')
         generator.generate(num)
     except Exception as e:
@@ -142,7 +145,7 @@ def execute_program():
 
     print('\nSave the model...',end='     ')
     try:
-        joblib.dump(mode, "model.m")
+        joblib.dump(mode, './model.m')
         status('OK')
     except Exception as e:
         status(e)

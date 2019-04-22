@@ -7,7 +7,7 @@ c = conn.cursor()
 def newDB():
     c.execute('''CREATE TABLE CAPLIB (
     ADDR TEXT NOT NULL UNIQUE ,
-    WORD TEXT NOT NULL UNIQUE 
+    WORD TEXT NOT NULL 
     )''')
 
     conn.commit()

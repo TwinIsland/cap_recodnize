@@ -2,7 +2,7 @@
 
 from PIL import Image, ImageFont, ImageDraw, ImageFilter
 import random
-import crack_cap.DB as DB
+import DB
 
 
 def charRandom():
